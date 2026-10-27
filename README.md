@@ -268,3 +268,5 @@ python -m pytest -o addopts= tests --basetemp=.tmp/tests -q
 | CLI程序打包 | Windows/Linux的CLI打包脚本及部署说明 |
 
 访问[进阶版仓库](https://github.com/ckxingchen/test-framework-kw)，查看使用文档、配置要求和示例。客户端、OCR及系统操作的可用性取决于执行环境，按对应模块说明准备依赖。
+
+### 进交流群WX: ckxc529

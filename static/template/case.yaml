@@ -1,0 +1,19 @@
+info:
+- desc: 请填写用例信息
+  params:
+    id:
+    title:
+config:
+- policy: skip
+  desc: 是否跳过此用例
+  params:
+    flag: false
+    reason:
+- policy: parametrize
+  desc: 是否使用数据驱动
+  params:
+    flag: false
+    filename:
+    sheetname:
+step: []
+

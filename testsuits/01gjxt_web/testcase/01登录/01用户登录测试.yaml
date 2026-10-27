@@ -1,0 +1,38 @@
+info:
+- desc: 请填写用例信息
+  params:
+    id: 1
+    title: 1
+config:
+- policy: skip
+  desc: 是否跳过此用例
+  params:
+    flag: false
+    reason:
+- policy: parametrize
+  desc: 是否使用数据驱动
+  params:
+    flag: true
+    filename: 登录数据驱动.xlsx
+    sheetname: Sheet1
+step:
+- business: 01登录/稿件系统登录.yaml
+  desc: 稿件系统登录
+  params:
+    用户名:
+      value: DataDriver.用户名
+      path: $[1].params.text
+    密码:
+      value: DataDriver.密码
+      path: $[2].params.text
+- action: WebAction
+  method: get_title
+  desc: 获取页面标题
+  params:
+    result: result
+- action: CheckAction
+  method: equal
+  desc: 判断两个值相等
+  params:
+    real_value: ${result}
+    expect_value: DataDriver.预期结果

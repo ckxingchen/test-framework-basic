@@ -1,0 +1,7 @@
+step:
+- action: CheckAction
+  method: equal
+  desc: 判断两个值相等2
+  params:
+    real_value: 2
+    expect_value: 2

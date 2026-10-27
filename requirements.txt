@@ -1,0 +1,10 @@
+playwright==1.61.0
+pytest==9.1.1
+allure-pytest==2.16.0
+pytest-html==4.2.0
+requests==2.34.2
+jsonpath-ng==1.8.0
+pydantic==2.13.4
+Jinja2==3.1.6
+openpyxl==3.1.5
+ruamel.yaml==0.17.40

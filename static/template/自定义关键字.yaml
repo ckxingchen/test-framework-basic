@@ -1,0 +1,7 @@
+- function: python
+  desc: 自定义关键字
+  params:
+    py_name:
+    func_name:
+    kwargs:
+    result:

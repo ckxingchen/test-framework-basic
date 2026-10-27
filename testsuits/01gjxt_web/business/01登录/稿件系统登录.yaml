@@ -1,0 +1,36 @@
+business:
+- business:
+  desc: 稿件系统登录
+  params:
+    用户名:
+      value: test01
+      path: $[1].params.text
+    密码:
+      value: '1111'
+      path: $[2].params.text
+step:
+- action: WebAction
+  method: open_url
+  desc: 打开浏览器地址
+  params:
+    url: /web/guest/home
+- action: WebAction
+  method: input_text
+  desc: 文本框输入操作：输入用户名
+  params:
+    text: test01
+    locator_type: name
+    locator_value: _58_login
+- action: WebAction
+  method: input_text
+  desc: 文本框输入操作：输入密码
+  params:
+    text: 1111
+    locator_type: name
+    locator_value: _58_password
+- action: WebAction
+  method: click_element
+  desc: 元素点击操作：点击登录
+  params:
+    locator_type: xpath
+    locator_value: .//input[@type='submit' and @value='登录']

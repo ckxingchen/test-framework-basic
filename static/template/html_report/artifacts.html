@@ -1,0 +1,21 @@
+<div class="kw-failure-artifacts failure-artifacts">
+  {% if trace %}<a class="kw-trace-button" href="{{ trace.url }}" download="{{ trace.name }}">↓ 下载 Trace</a>{% endif %}
+  {% if screenshot or videos %}
+  <div class="kw-artifact-tabs" role="tablist" aria-label="失败产物类型">
+    {% if screenshot %}<button type="button" class="kw-artifact-tab" role="tab" aria-selected="true" data-media="screenshot">失败截图</button>{% endif %}
+    {% for video in videos %}<button type="button" class="kw-artifact-tab" role="tab" aria-selected="{{ 'false' if screenshot or not loop.first else 'true' }}" data-media="video-{{ loop.index }}">失败录像{% if videos|length > 1 %} {{ loop.index }}{% endif %}</button>{% endfor %}
+  </div>
+  {% if screenshot %}
+  <div class="kw-artifact-panel" role="tabpanel" data-media="screenshot">
+    <a class="kw-screenshot-link" href="{{ screenshot.url }}" download="{{ screenshot.name }}" aria-label="下载失败截图"><img src="{{ screenshot.url }}" alt="失败截图" loading="lazy"></a>
+    <div class="kw-artifact-caption">{{ screenshot.name }}</div>
+  </div>
+  {% endif %}
+  {% for video in videos %}
+  <div class="kw-artifact-panel" role="tabpanel" data-media="video-{{ loop.index }}"{% if screenshot or not loop.first %} hidden{% endif %}>
+    <video controls preload="none"><source src="{{ video.url }}" type="{{ video.mime_type }}">当前浏览器不支持播放此录像。</video>
+    <div class="kw-artifact-caption">{{ video.name }}</div>
+  </div>
+  {% endfor %}
+  {% else %}<p class="kw-media-empty">当前用例未生成截图或录像。</p>{% endif %}
+</div>

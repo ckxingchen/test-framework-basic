@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.tmp/
+.idea/
+.vscode/
+/action/
+/testsuits/*/log/
+/testsuits/*/report/
+*.egg-info/

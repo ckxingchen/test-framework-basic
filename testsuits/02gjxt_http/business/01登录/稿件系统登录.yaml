@@ -1,0 +1,49 @@
+business:
+- business:
+  desc: 稿件系统登录
+  params:
+    用户名:
+      value: test01
+      path: $[1].params.data._58_login
+    密码:
+      value: '1111'
+      path: $[1].params.data._58_password
+step:
+- action: HttpAction
+  method: request
+  desc: 发送POST请求,稿件系统home
+  params:
+    method: post
+    url: /web/guest/home
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like
+        Gecko
+    params:
+    data:
+    json:
+    result_text: result_text
+- action: HttpAction
+  method: request
+  desc: 发送POST请求,稿件系统登录
+  params:
+    method: post
+    url: /web/guest/home
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like
+        Gecko
+    params:
+      p_p_id: '58'
+      p_p_lifecycle: '1'
+      p_p_state: normal
+      p_p_mode: view
+      p_p_col_id: column-1
+      p_p_col_count: '1'
+      saveLastPath: '0'
+      _58_struts_action: /login/view
+      _58_cmd: update
+    data:
+      _58_redirect: ''
+      _58_login: test01
+      _58_password: '1111'
+    json:
+    result_text: result_text
